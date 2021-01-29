@@ -1,0 +1,4 @@
+[submodule "Heliummx/odoo-stock-module"]
+	path = Heliummx/odoo-stock-module
+	url = git@github.com:Heliummx/odoo-stock-module.git
+	branch = main
