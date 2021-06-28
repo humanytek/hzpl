@@ -127,7 +127,7 @@ class WebhookOdooOrderUpload(http.Controller):
         partner = request.env['res.partner'].sudo().create({
             'name': address.get('first_name') + " " + address.get('last_name'),
             #'customer': True,
-            'vat': address.get('company'),
+            #'vat': address.get('company'),
             'street_name': address.get('address_1'),
             'zip': address.get('postcode'),
             'city': address.get('city')
