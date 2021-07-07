@@ -98,6 +98,7 @@ class WebhookOdooOrderUpload(http.Controller):
         order_line = self.get_order_lines(cart_content)
 
         sale_order_odoo = request.env['sale.order'].sudo().create({
+            'woocommerce_sale_order_id': data.get("id"),
             'partner_id': partner_odoo.id,
             'partner_invoice_id': billing_address_odoo.id,
             'partner_shipping_id': shipping_address_odoo.id,
