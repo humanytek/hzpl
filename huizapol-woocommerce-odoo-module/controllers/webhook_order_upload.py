@@ -67,7 +67,7 @@ class WebhookOdooOrderUpload(http.Controller):
 
         if customerId != 0:
             partner_odoo = request.env['res.partner'].sudo().search(
-                [('woocommerce_customer_id', '=', customerId)])
+                [('woocommerce_customer_id', '=', customerId)], limit=1)
             if not partner_odoo.exists():
                 partner_odoo = request.env['res.partner'].sudo().search(
                     [('email', '=', emailCustomer)], limit=1)
