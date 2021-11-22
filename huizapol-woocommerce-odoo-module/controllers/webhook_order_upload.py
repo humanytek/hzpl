@@ -70,7 +70,7 @@ class WebhookOdooOrderUpload(http.Controller):
                 [('woocommerce_customer_id', '=', customerId)])
             if not partner_odoo.exists():
                 partner_odoo = request.env['res.partner'].sudo().search(
-                    [('email', '=', emailCustomer)])
+                    [('email', '=', emailCustomer)], limit=1)
                 if not partner_odoo.exists():
                     partner_odoo = self.generate_user(
                         emailCustomer, billing_address)
@@ -78,7 +78,7 @@ class WebhookOdooOrderUpload(http.Controller):
 
         else:
             partner_odoo = request.env['res.partner'].sudo().search(
-                [('email', '=', emailCustomer)])
+                [('email', '=', emailCustomer)], limit=1)
             if not partner_odoo.exists():
                 partner_odoo = self.generate_user(
                     emailCustomer, billing_address)
